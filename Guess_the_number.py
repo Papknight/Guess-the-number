@@ -1,20 +1,22 @@
 import random
 
-def guess(number):
-    # try:
-        computer = random.randint(1, 100)
-        print(computer)
-        while computer != number:
-            if computer > number:
-                print("To small")  
-                number = int(input("Podaj liczbę: "))
-            elif computer < number:
-                print("To big")
-                number = int(input("Podaj liczbę: "))
-            else:
-                pass
-            print("You win!")
-    # except ValueError:
-    #     print("To nie jest liczba")
+def get():
+    while True:
+        try:
+            user = int(input("Guess the number: "))
+            break
+        except ValueError:
+            print("To nie jest liczba")
+    return user
 
-user_answer = guess(int(input("Podaj liczbę: ")))
+def guess():
+    user_answer = get()
+    computer = random.randint(1, 100)
+    while user_answer != computer:
+        if computer > user_answer:
+            print("To big")
+        else:
+            print("To small")
+    print("You win")
+
+guess()
