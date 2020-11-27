@@ -1,6 +1,7 @@
 import random
 
 def get():
+    """Get number from user"""
     while True:
         try:
             user = int(input("Guess the number: "))
@@ -10,6 +11,7 @@ def get():
     return user
 
 def guess():
+    """Check if user number is equal to computer random generated"""
     user_answer = get()
     computer = random.randint(1, 100)
     while user_answer != computer:
